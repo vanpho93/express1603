@@ -14,17 +14,37 @@ app.get('/show/:id/:name', (req, res) => {
 //http://localhost:3000/tinh/cong/10/5
 
 //10 + 5 = 15
-
+//eval
 app.get('/tinh/:pt/:a/:b', (req, res) => {
 
 });
 
 class PhepTinh {
     constructor(pheptinh, soa, sob){
-
+        this.pheptinh = pheptinh;
+        this.soa = soa;
+        this.sob = sob;
     }
 
     getResultString() {
-        
+        const sign = this.getSign();
+        const left = `${this.soa} ${sign} ${this.sob}`;
+        const result = eval(left);
+        return `${left} = ${result}`;
+    }
+
+    getSign() {
+        switch(this.pheptinh){
+            case 'cong': 
+                return '+';
+            case 'tru':
+                return '-';
+            case 'nhan':
+                return '*'
+            default: return '/'
+        }
     }
 }
+
+const pt1 = new PhepTinh('chia', 4, 5);
+console.log(pt1.getResultString());
