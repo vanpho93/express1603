@@ -1,0 +1,20 @@
+{
+  "name": "express1603",
+  "version": "1.0.0",
+  "description": "https://www.youtube.com/watch?v=8aGhZQkoFbQ&t=3s",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanpho93/express1603.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanpho93/express1603/issues"
+  },
+  "homepage": "https://github.com/vanpho93/express1603#readme"
+}
