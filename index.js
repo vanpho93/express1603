@@ -16,7 +16,14 @@ app.get('/show/:id/:name', (req, res) => {
 //10 + 5 = 15
 //eval
 app.get('/tinh/:pt/:a/:b', (req, res) => {
-
+    const { pt, a, b } = req.params;
+    const pheptinh = new PhepTinh(pt, a, b);
+    try{
+        console.log(res);
+        res.send(pheptinh.getResultString());
+    } catch (e) {
+        res.send(e + '');
+    }
 });
 
 class PhepTinh {
@@ -45,6 +52,3 @@ class PhepTinh {
         }
     }
 }
-
-const pt1 = new PhepTinh('chia', 4, 5);
-console.log(pt1.getResultString());
