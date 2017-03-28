@@ -1,9 +1,11 @@
-function a () {
-    try {
-        setTimeout(() => console.log(b + 1), 1000);
-    } catch(e) {
-        console.log('LOI: ' + e);
-    }
+function a() {
+    setTimeout(() => {
+        try {
+            console.log(b + 1)
+        } catch (e) {
+            console.log('LOI: ' + e);
+        }
+    }, 1000);
 }
 
 a();
