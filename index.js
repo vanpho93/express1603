@@ -6,7 +6,7 @@ const PhepTinh = require('./PhepTinh');
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './view');
-app.use(express.static('public'));
+app.use('/static',express.static('public'));
 
 app.listen(3000, () => console.log('Server start'));
 
