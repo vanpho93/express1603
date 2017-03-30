@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/vanpho93/express1603/issues"
   },
-  "homepage": "https://github.com/vanpho93/express1603#readme"
+  "homepage": "https://github.com/vanpho93/express1603#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
