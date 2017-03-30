@@ -5,6 +5,7 @@ const PhepTinh = require('./PhepTinh');
 
 const app = express();
 app.set('view engine', 'ejs');
+app.set('views', './view');
 
 app.listen(3000, () => console.log('Server start'));
 
@@ -13,16 +14,15 @@ app.get('/show/:id/:name', require('./controller/showController.js'));
 app.get('/tinh/:pt/:a/:b', require('./controller/tinhController'));
 
 app.get('/form', (req, res) => {
-    const html = `
-        <form action="/name"  method="POST">
-            <input type="text" name="username" placeholder="Username" />
-            <br /><br />
-            <input type="password" name="password" placeholder="Password" />
-            <br /><br />
-            <button>Put</button>
-        </form>
-    `;
-    res.send(html);
+    res.render('form');
+});
+
+app.get('/tinh', (req, res) => res.render('tinh'));
+
+app.post('/tinh', parser, (req, res) => {
+    const {pt, soa, sob} = req.body;
+    const phepTinh = new PhepTinh(pt, soa, sob);
+    res.send(phepTinh.getResultString());
 });
 
 app.get('/home', (req, res) => res.render('home'));
