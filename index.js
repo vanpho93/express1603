@@ -4,13 +4,7 @@ const PhepTinh = require('./PhepTinh');
 const app = express();
 app.listen(3000, () => console.log('Server start'));
 
-//http://localhost:3000/show/100
-
-app.get('/show/:id/:name', (req, res) => {
-    const id = req.params.id;
-    const name = req.params.name;
-    res.send('Hello world: ' + id + ' : ' + name);
-});
+app.get('/show/:id/:name', require('./controller/showController.js'));
 
 //http://localhost:3000/tinh/cong/10/5
 
