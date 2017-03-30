@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const parser = bodyParser.urlencoded({ extended: false });
-
 const PhepTinh = require('./PhepTinh');
 
 const app = express();
+app.set('view engine', 'ejs');
+
 app.listen(3000, () => console.log('Server start'));
 
 app.get('/show/:id/:name', require('./controller/showController.js'));
@@ -23,6 +24,8 @@ app.get('/form', (req, res) => {
     `;
     res.send(html);
 });
+
+app.get('/home', (req, res) => res.render('home'));
 
 app.post('/name', parser, (req, res) => {
     console.log(req.body);
